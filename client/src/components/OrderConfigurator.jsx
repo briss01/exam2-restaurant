@@ -246,6 +246,7 @@ function OrderConfigurator(props) {
     API.addOrder(order)
       .then(() => {
         setDirtyOrders(true);
+        setDirty(true);
         setSelectedDish(null);
         setSelectedSize(null);
         setSelectedIngredients([]);

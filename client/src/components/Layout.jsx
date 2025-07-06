@@ -126,6 +126,7 @@ function OrderHistoryLayout(props) {
             loggedInTotp={props.loggedInTotp}
             handleErrors={props.handleErrors}
             setDirtyOrders={props.setDirtyOrders}
+            setDirty={props.setDirty}
             loading={props.loading}
           />
         </Col>
