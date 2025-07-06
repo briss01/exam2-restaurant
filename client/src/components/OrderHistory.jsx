@@ -13,11 +13,11 @@ import API from '../API.js';
  * @param {Array} props.orderList - Array of order objects to display
  * @param {boolean} props.loggedInTotp - Whether user has completed 2FA authentication
  * @param {Function} props.handleErrors - Error handling function from parent
- * @param {Function} props.setDirty - Function to trigger data refresh in parent
+ * @param {Function} props.setDirtyOrders - Function to trigger orders refresh in parent
  * @param {boolean} props.loading - Loading state indicator
  */
 function OrderHistory(props) {
-  const { orderList = [], loggedInTotp, handleErrors, setDirty, loading = false } = props;
+  const { orderList = [], loggedInTotp, handleErrors, setDirtyOrders, loading = false } = props;
   const navigate = useNavigate();
   
   // State for user feedback messages
@@ -46,7 +46,7 @@ function OrderHistory(props) {
       setMessage('Order cancelled successfully');
       
       // Trigger reload of orders from parent component
-      if (setDirty) setDirty(true);
+      if (setDirtyOrders) setDirtyOrders(true);
       
       // Close modal and reset state
       setShowCancelModal(false);

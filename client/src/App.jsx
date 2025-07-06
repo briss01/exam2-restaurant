@@ -33,6 +33,7 @@ function App() {
   
   // Data management states
   const [dirty, setDirty] = useState(true); // Triggers reload of ingredients, dishes, sizes
+  const [dirtyOrders, setDirtyOrders] = useState(false); // Triggers reload of orders
   const [ingredients, setIngredients] = useState([]);
   const [dishes, setDishes] = useState([]);
   const [sizes, setSizes] = useState([]);
@@ -109,7 +110,7 @@ function App() {
     }
   }, [dirty]);
 
-  // Load user orders when authentication status changes to logged in
+  // Load user orders when authentication status changes to logged in or when dirtyOrders flag is set
   useEffect(() => {
     if (loggedIn && !loadingOrders) {
       setLoadingOrders(true);
@@ -117,6 +118,7 @@ function App() {
         .then(ordersData => {
           setOrderList(ordersData);
           setLoadingOrders(false);
+          setDirtyOrders(false); // Reset the flag after loading orders
         })
         .catch(error => {
           console.error('Error loading orders:', error);
@@ -124,7 +126,7 @@ function App() {
           setLoadingOrders(false);
         });
     }
-  }, [loggedIn]);
+  }, [loggedIn, dirtyOrders]);
 
   /**
    * Handle user login and trigger data reload
@@ -203,6 +205,7 @@ function App() {
                 handleErrors={handleErrors}
                 dirty={dirty}
                 setDirty={setDirty}
+                setDirtyOrders={setDirtyOrders}
               />
             ) : <Navigate replace to="/login" />
           } />
@@ -216,6 +219,7 @@ function App() {
                 logout={handleLogout}
                 handleErrors={handleErrors}
                 setDirty={setDirty}
+                setDirtyOrders={setDirtyOrders}
                 loading={loadingOrders}
               />
             ) : <Navigate to="/login" replace />

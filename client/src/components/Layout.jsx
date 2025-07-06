@@ -98,6 +98,7 @@ function OrderLayout(props) {
         handleErrors={props.handleErrors} 
         dirty={props.dirty} 
         setDirty={props.setDirty} 
+        setDirtyOrders={props.setDirtyOrders}
       />
     </>
   );
@@ -124,7 +125,7 @@ function OrderHistoryLayout(props) {
             orderList={props.orderList} 
             loggedInTotp={props.loggedInTotp}
             handleErrors={props.handleErrors}
-            setDirty={props.setDirty}
+            setDirtyOrders={props.setDirtyOrders}
             loading={props.loading}
           />
         </Col>
@@ -450,15 +451,16 @@ function OrderPageLayout(props) {
       </Col>
       {/* Right column: Order configuration */}
       <Col xs={6}>
-        <OrderLayout 
+                <OrderLayout 
           ingredients={props.ingredients}
           dishes={props.dishes}
           sizes={props.sizes}
-          orderList={props.orderList}
-          setOrderList={props.setOrderList}
-          handleErrors={props.handleErrors}
-          dirty={props.dirty}
-          setDirty={props.setDirty}
+          orderList={props.orderList} 
+          setOrderList={props.setOrderList} 
+          handleErrors={props.handleErrors} 
+          dirty={props.dirty} 
+          setDirty={props.setDirty} 
+          setDirtyOrders={props.setDirtyOrders}
         />
       </Col>
     </Row>

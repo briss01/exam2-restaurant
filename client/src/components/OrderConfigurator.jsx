@@ -16,9 +16,10 @@ import API from '../API.js';
  * @param {Array} props.sizes - Available dish sizes with ingredient limits
  * @param {Function} props.handleErrors - Error handling function from parent
  * @param {Function} props.setDirty - Function to trigger data refresh in parent
+ * @param {Function} props.setDirtyOrders - Function to trigger orders refresh in parent
  */
 function OrderConfigurator(props) {
-  const { ingredients, dishes, sizes, handleErrors, setDirty } = props;
+  const { ingredients, dishes, sizes, handleErrors, setDirty, setDirtyOrders } = props;
   
   // State for order configuration
   const [selectedDish, setSelectedDish] = useState(null);
@@ -244,7 +245,7 @@ function OrderConfigurator(props) {
 
     API.addOrder(order)
       .then(() => {
-        setDirty(true);
+        setDirtyOrders(true);
         setSelectedDish(null);
         setSelectedSize(null);
         setSelectedIngredients([]);

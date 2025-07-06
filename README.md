@@ -5,7 +5,7 @@
 ## React Client Application Routes
 
 - Route `/`: Public page with base dishes and their size, and ingredients with login button for non authenticated users
-- Route `/login`: User login page with optional 2FA setup choice - handles authentication flow
+- Route `/login`: User login page with email and password - handles authentication flow
 - Route `/totp`: TOTP (2FA) verification page for token input - requires initial login
 - Route `/orders`: Order configuration page with ingredient selection and constraint validation - authenticated users only
 - Route `/history`: Order history page with detailed view and cancellation functionality - authenticated users only
@@ -50,7 +50,7 @@
 
 - POST `/api/login-totp`
   - Description: Verify TOTP token for 2FA authentication using secret LXBSMDTMSP2I5XFXIYRGFVWSFI
-  - request body: `{"token": "123456"}`
+  - request body: `{"code": "123456"}`
   - response body: `{"otp": "authorized"}`
 
 - GET `/api/sessions/current`
@@ -77,23 +77,6 @@
 
 ## Main React Components
 
-### Core Application Components
-- **`App`** (in `App.jsx`): Main application component with routing, global state management, and authentication handling
-- **`GenericLayout`** (in `Layout.jsx`): Main layout with navigation, shared state, and order configurator
-
-### Order Management Components
-- **`OrderConfigurator`** (in `OrderConfigurator.jsx`): Main order configuration component with two-panel layout, real-time constraint validation, dynamic size selection, and live price calculation
-- **`OrderHistory`** (in `OrderHistory.jsx`): Order history display with detailed ingredient breakdown, size price display, and order cancellation with 2FA requirement
-
-### Authentication Components
-- **`LoginForm`** (in `Auth.jsx`): User login form with credential validation
-- **`LoginWithTotp`** (in `Auth.jsx`): TOTP verification form for 2FA authentication
-
-### Navigation Components
-- **`Navigation`** (in `Navigation.jsx`): Navigation bar with responsive design and login/logout functionality
-
-## Main React Components
-
 ### Core Application
 - **App** (`src/App.jsx`) - Main application with routing and state management
 - **GenericLayout** (`Layout.jsx`) - Main layout wrapper with navigation
@@ -103,12 +86,12 @@
 - **OrderHistory** (`OrderHistory.jsx`) - Order history display and management
 
 ### Authentication
-- **LoginWithTotp** (`src/App.jsx`) - Login component with TOTP choice logic
+- **LoginWithTotp** (`App.jsx`) - Login component with TOTP choice logic
 - **ChooseTotpLayout** (`Layout.jsx`) - TOTP choice selection layout
 - **LoginForm** (`Auth.jsx`) - User login form with credential validation
 - **TotpForm** (`Auth.jsx`) - TOTP verification form for 2FA
 
-### Navigation & UI
+### Navigation 
 - **Navigation** (`Navigation.jsx`) - Application navigation bar
 - **MenuLayout** (`Layout.jsx`) - Home page menu display
 

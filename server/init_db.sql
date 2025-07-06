@@ -116,10 +116,10 @@ INSERT INTO "ingredient_incompatibilities" VALUES (3,4);
 INSERT INTO "ingredient_incompatibilities" VALUES (5,8);
 INSERT INTO "ingredient_incompatibilities" VALUES (8,5);
 
-INSERT INTO "orders" VALUES (1,1,1,1,6.50);
-INSERT INTO "orders" VALUES (2,1,2,1,7.20);
-INSERT INTO "orders" VALUES (3,2,2,2,8.90);
-INSERT INTO "orders" VALUES (4,2,3,3,11.70);
+INSERT INTO "orders" VALUES (1,1,1,1,6.20);
+INSERT INTO "orders" VALUES (2,1,2,1,6.50);
+INSERT INTO "orders" VALUES (3,2,2,2,9.70);
+INSERT INTO "orders" VALUES (4,2,3,3,11.60);
 
 INSERT INTO "order_ingredients" VALUES (1,2);
 INSERT INTO "order_ingredients" VALUES (1,5);
