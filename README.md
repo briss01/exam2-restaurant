@@ -129,8 +129,8 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/briss01/exam2-restaurant.git
+   cd exam2-restaurant
    ```
 
 2. **Set up and run the client:**
@@ -144,20 +144,7 @@
    ```bash
    cd ../server
    npm ci
-   ```
-
-4. **Start the server:**
-
-   The server was tested using nodemon, installed globally with:
-   npm install -g nodemon
-   You can also use node to run it.
-
-   Using nodemon (recommended):
-   ```bash
    nodemon server.js
-   ```
-
-   Using node:
-   ```bash
-   node server.js
+   # The server was tested using nodemon, installed globally with:
+   # npm install -g nodemon
    ```
