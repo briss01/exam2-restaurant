@@ -122,3 +122,42 @@
 - bob@example.com, password2 (Bob, 2FA disabled - standard user without 2FA)
 - carol@example.com, password3 (Carol, 2FA enabled - can cancel orders with TOTP)
 - dave@example.com, password4 (Dave, 2FA disabled - standard user without 2FA)
+
+---
+
+## Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
+   ```
+
+2. **Set up and run the client:**
+   ```bash
+   cd client
+   npm ci
+   npm run dev
+   ```
+
+3. **Set up and run the server:**
+   ```bash
+   cd ../server
+   npm ci
+   ```
+
+4. **Start the server:**
+
+   The server was tested using nodemon, installed globally with:
+   npm install -g nodemon
+   You can also use node to run it.
+
+   Using nodemon (recommended):
+   ```bash
+   nodemon server.js
+   ```
+
+   Using node:
+   ```bash
+   node server.js
+   ```
